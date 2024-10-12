@@ -2,7 +2,7 @@
 """
 Created on Sat Oct 12 11:03:09 2024
 
-@author: Adira Islah
+@author: Adira
 """
 
 import tkinter as tk
@@ -168,9 +168,9 @@ def predict_heart_attack(page):
 
         # Tampilkan hasil prediksi
         if prediction[0] == 1:
-            result_label.config(text="Hasil Prediksi: Positive (Berpotensi Serangan Jantung)")
+            result_label.config(text="Hasil Prediksi: Berpotensi Serangan Jantung!!!")
         else:
-            result_label.config(text="Hasil Prediksi: Negative (Tidak Berpotensi Serangan Jantung)")
+            result_label.config(text="Hasil Prediksi: Tidak Berpotensi Serangan Jantung")
 
     except ValueError as e:
         messagebox.showerror("Input Error", f"Error: {e}")
@@ -210,7 +210,7 @@ notebook.add(tc_features, text='Prediksi 2 Fitur')
 style = ttk.Style()
 style.configure('Header.TLabel', font=('Montserrat', 20, 'bold'), background='#3498db', foreground='white')
 style.configure('TLabel', font=('Helvetica', 12), background='#ecf0f1')
-style.configure('TButton', font=('Helvetica', 12), background='#2980b9', foreground='white', padding=10)
+style.configure('RoundedButton.TButton', borderwidth=5, relief='flat', padding=(10, 5))
 style.configure('TRadiobutton', font=('Helvetica', 12), background='#ecf0f1')
 style.configure('TEntry', font=('Helvetica', 12))
 
@@ -285,7 +285,7 @@ radio_knn_all = ttk.Radiobutton(all_features, text="K-NN", variable=model_var_al
 radio_knn_all.pack(pady=5)
 
 # Tombol untuk prediksi
-predict_button_all = ttk.Button(all_features, text="Prediksi", command=lambda: predict_heart_attack('all_features'))
+predict_button_all = ttk.Button(all_features, text="Prediksi", style='RoundedButton.TButton', command=lambda: predict_heart_attack('all_features'))
 predict_button_all.pack(pady=20)
 
 ##### FRAME 2 FITUR##########################################################################
@@ -312,7 +312,7 @@ entry_troponin1.grid(row=1, column=1, pady=10, padx=10)
 # Pemilihan metode untuk frame 2 fitur
 model_var_gc = tk.StringVar(value="Decision Tree")
 label_model_gc = ttk.Label(tc_features, text="Pilih Metode:", font=('Helvetica', 14))
-label_model_gc.pack(pady=10)
+label_model_gc.pack(pady=20)
 
 radio_dt_gc = ttk.Radiobutton(tc_features, text="Decision Tree", variable=model_var_gc, value="Decision Tree")
 radio_dt_gc.pack(pady=5)
@@ -321,7 +321,7 @@ radio_knn_gc.pack(pady=5)
 
 # Tombol untuk prediksi
 predict_button_gc = ttk.Button(tc_features, text="Prediksi", command=lambda: predict_heart_attack('gc_features'))
-predict_button_gc.pack(pady=20)
+predict_button_gc.pack(pady=10)
 
 # Label untuk hasil prediksi
 result_label = tk.Label(root, text="", font=("Helvetica", 14, "bold"), background='#ecf0f1', foreground='#34495e')
