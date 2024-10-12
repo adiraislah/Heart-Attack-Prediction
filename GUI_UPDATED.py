@@ -2,7 +2,7 @@
 """
 Created on Sat Oct 12 11:03:09 2024
 
-@author: Home Photoworks Dago
+@author: Adira Islah
 """
 
 import tkinter as tk
